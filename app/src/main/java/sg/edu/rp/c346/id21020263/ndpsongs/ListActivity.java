@@ -17,7 +17,8 @@ public class ListActivity extends AppCompatActivity {
     Button fiveStarSongs;
     ListView lv;
     ArrayList<Song> al;
-    ArrayAdapter<Song> aa;
+//    ArrayAdapter<Song> aa;
+    CustomAdapter ca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +29,10 @@ public class ListActivity extends AppCompatActivity {
         fiveStarSongs = findViewById(R.id.button5stars);
 
         al = new ArrayList<Song>();
-        aa = new ArrayAdapter<Song>(this, android.R.layout.simple_list_item_1, al);
-        lv.setAdapter(aa);
+//        aa = new ArrayAdapter<Song>(this, android.R.layout.simple_list_item_1, al);
+
+        ca = new CustomAdapter(this, R.layout.row, al);
+        lv.setAdapter(ca);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
